@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 4000;
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const minifyHTML = require('express-minify-html');
+const mongoose = require('mongoose')
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -35,7 +36,7 @@ app.use(minifyHTML({
 }));
 
 // Uncomment this code with DBURL parameter in .env file to connect with database
-/*
+
 //Database URL
 const DBURL = process.env.DBURL;
 
@@ -43,7 +44,7 @@ const DBURL = process.env.DBURL;
 mongoose.connect(DBURL, {useNewUrlParser: true, useCreateIndex: true})
     .then(() => console.log('Database is Connected...'))
     .catch((err) => console.log(err));
-*/
+
 
 // EJS Engine Setting
 app.set('views', path.join(__dirname, 'views'));

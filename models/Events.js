@@ -1,14 +1,5 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(
-    process.env.CONNECTIONURL,
-    {useNewUrlParser:true,useUnifiedTopology:true},
-    (err)=>{
-        if (err) throw err;
-        console.log("connected to database cluster for Events collection...")
-    }
-)
-
 const EventsSchema = mongoose.Schema({
   Name: {
     type: String,
@@ -39,4 +30,4 @@ const EventsSchema = mongoose.Schema({
   }
 });
 
-module.exports = Events = mongoose.model("Event",EventsSchema,"Events");
+module.exports = Event = mongoose.model("Event",EventsSchema,"Events");
